@@ -46,3 +46,8 @@ PyHTMLify is a Python script that converts Markdown files to HTML with additiona
 For example, converting `sample.md` to HTML:
 ```bash
 python converter.py sample.md output.html --css custom_style.css
+```
+
+## Support this project, if you'd like to:
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V1GVSTH)
