@@ -1,7 +1,9 @@
-import re
 import markdown2
+import re
 import emoji
 import sys
+
+# Conversion logic
 
 
 def convert_headings(text):
@@ -50,8 +52,12 @@ def convert_links(text_to_convert, css_file=None):
     pattern = r'\[([^\]]+?)\]\[([^\]]+?)\]'
     replacement = r'<a href="#\2">\1</a>'
 
-    # Convert emoji characters to HTML entities using the emoji library
-    text_to_convert = emoji.emojize(text_to_convert)
+    try:
+        # Convert emoji characters to HTML entities using the emoji library
+        text_to_convert = emoji.emojize(text_to_convert)
+    except Exception as e:
+        # Handle the EmojiError, which might occur if there's an issue with emoji conversion
+        print(f"Error converting emojis: {e}", file=sys.stderr)
 
     # Apply custom CSS styles if a CSS file is provided
     if css_file:
@@ -63,31 +69,20 @@ def convert_links(text_to_convert, css_file=None):
     return text_to_convert
 
 
-def convert_markdown_to_html(markdown_file, output_file='output.html'):
+def convert_markdown_to_html(markdown_content):
     """
-    Convert Markdown file to HTML.
+    Convert Markdown content to HTML.
 
-    Reads the content of a Markdown file, converts it to HTML, and saves it to a file.
+    Converts Markdown content to HTML and returns the result.
     """
     try:
-        # Read Markdown file content
-        with open(markdown_file, 'r', encoding='utf-8') as md:
-            markdown_content = md.read()
-
         # Convert Markdown to HTML using markdown2
         html_content = markdown2.markdown(markdown_content)
 
         # Convert links and apply custom CSS
         html_content = convert_links(html_content)
 
-        # Save HTML content to a file
-        with open(output_file, 'w', encoding='utf-8') as html_file:
-            html_file.write(html_content)
+        return html_content
     except Exception as e:
         # Handle any other unexpected exceptions
         print(f"An unexpected error occurred: {e}", file=sys.stderr)
-
-
-if __name__ == "__main__":
-    # Example usage
-    convert_markdown_to_html('sample.md', output_file='output.html')
