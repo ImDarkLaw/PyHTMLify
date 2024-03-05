@@ -35,11 +35,11 @@ def convert_lists(text):
     return text
 
 
-def convert_links(text_to_convert):
+def convert_links(text_to_convert, css_file=None):
     """
     Convert Markdown links to HTML links.
 
-    Example: [My Github](https://github.com/ImDarkLaw) => <a href="https://github.com/ImDarkLaw">My Github</a>
+    Example: [My GitHub](https://github.com/ImDarkLaw) => <a href="https://github.com/ImDarkLaw">My GitHub</a>
     """
     # Convert Markdown links to HTML links
     pattern = r'\[([^\]]+?)\]\(([^)]+?)\)'
@@ -50,12 +50,14 @@ def convert_links(text_to_convert):
     pattern = r'\[([^\]]+?)\]\[([^\]]+?)\]'
     replacement = r'<a href="#\2">\1</a>'
 
-    try:
-        # Convert emoji characters to HTML entities using the emoji library
-        text_to_convert = emoji.emojize(text_to_convert)
-    except emoji.EmojiError as e:
-        # Handle the EmojiError, which might occur if there's an issue with emoji conversion
-        print(f"Error converting emojis: {e}", file=sys.stderr)
+    # Convert emoji characters to HTML entities using the emoji library
+    text_to_convert = emoji.emojize(text_to_convert)
+
+    # Apply custom CSS styles if a CSS file is provided
+    if css_file:
+        with open(css_file, 'r', encoding='utf-8') as css:
+            css_styles = css.read()
+        text_to_convert = f'<style>{css_styles}</style>{text_to_convert}'
 
     text_to_convert = re.sub(pattern, replacement, text_to_convert)
     return text_to_convert
@@ -83,7 +85,7 @@ def convert_markdown_to_html(markdown_file, output_file='output.html'):
             html_file.write(html_content)
     except Exception as e:
         # Handle any other unexpected exceptions
-        print(f"An error occurred: {e}", file=sys.stderr)
+        print(f"An unexpected error occurred: {e}", file=sys.stderr)
 
 
 if __name__ == "__main__":

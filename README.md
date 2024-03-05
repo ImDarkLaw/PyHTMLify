@@ -27,7 +27,7 @@ PyHTMLify is a Python script that converts Markdown files to HTML with additiona
 
 2. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/PyHTMLify.git
+    git clone https://github.com/ImDarkLaw/PyHTMLify.git
     ```
 
 3. Navigate to the project directory:
