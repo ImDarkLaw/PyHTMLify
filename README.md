@@ -38,25 +38,35 @@ PyHTMLify is a Python script that converts Markdown files to HTML with additiona
     cd PyHTMLify
     ```
 
-4. Run the script:
+4. Run the UI script:
     ```bash
-    python converter.py input.md output.html
+    python ui.py
     ```
 
-    Replace `input.md` with your Markdown file and `output.html` with the desired HTML output file.
+   This will launch a graphical user interface (GUI) where you can paste your Markdown content, click the "Convert" button, and view the generated HTML. Optionally, you can include a custom CSS file:
 
-5. Optionally, you can include a custom CSS file:
     ```bash
-    python converter.py input.md output.html --css custom.css
+    python ui.py --css custom.css
     ```
 
 ## Example
 
-For example, converting `sample.md` to HTML:
-```bash
-python converter.py sample.md output.html --css custom_style.css
-```
+For instance, using the UI to convert Markdown to HTML:
+
+1. Run the UI script:
+    ```bash
+    python ui.py
+    ```
+
+2. Paste your Markdown content into the input area.
+
+3. Click the "Convert" button.
+
+4. Optionally, include a custom CSS file:
+    ```bash
+    python ui.py --css custom_style.css
+    ```
 
 ## Why PyHTMLify?
 
-It's simple. Yeah, that's it.
+It's simple. Yeah, that's pretty much about it.
