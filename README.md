@@ -1,8 +1,8 @@
-<center>
+<div align="center">
 
 # PyHTMLify
 
-</center>
+</div>
 
 PyHTMLify is a Python script that converts Markdown files to HTML with additional features for improved styling and customization. It's designed to make it easy to generate HTML content from your Markdown files while providing options to enhance the output.
 
