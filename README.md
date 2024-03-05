@@ -4,8 +4,6 @@
 
 </center>
 
-## Overview
-
 PyHTMLify is a Python script that converts Markdown files to HTML with additional features for improved styling and customization. It's designed to make it easy to generate HTML content from your Markdown files while providing options to enhance the output.
 
 ## Features
@@ -18,9 +16,10 @@ PyHTMLify is a Python script that converts Markdown files to HTML with additiona
 
 ## Table of Contents
 
+- [Features](#features)
 - [Usage](#usage)
 - [Example](#example)
-- [Support this project, if you'd like to](#support-this-project-if-youd-like-to)
+- [Why PyHTMLify?](#why-pyhtmlify)
 
 ## Usage
 
@@ -58,6 +57,6 @@ For example, converting `sample.md` to HTML:
 python converter.py sample.md output.html --css custom_style.css
 ```
 
-## Support this project, if you'd like to:
+## Why PyHTMLify?
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V1GVSTH)
+It's simple. Yeah, that's it.
