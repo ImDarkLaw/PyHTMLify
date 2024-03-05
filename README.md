@@ -12,6 +12,12 @@ PyHTMLify is a Python script that converts Markdown files to HTML with additiona
 - **Emoji Support:** Converts emoji characters to HTML entities.
 - **Custom CSS:** Allows you to apply custom CSS styles to the generated HTML.
 
+## Table of Contents
+
+- [Usage](#usage)
+- [Example](#example)
+- [Support this project, if you'd like to](#support-this-project-if-youd-like-to)
+
 ## Usage
 
 1. Install the required dependencies:
