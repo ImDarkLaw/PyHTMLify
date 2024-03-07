@@ -24,7 +24,8 @@ PyHTMLify is a Python script that converts Markdown files to HTML with additiona
 
 1. Install the required dependencies:
     ```bash
-    pip install markdown2 emoji
+    pip install markdown2
+    pip install emoji
     ```
 
 2. Clone the repository:
