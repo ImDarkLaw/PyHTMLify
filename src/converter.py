@@ -10,9 +10,14 @@ def convert_headings(text):
     """
     Convert Markdown headings to HTML headings.
 
-    Example: # Heading DarkLaw => <h1>Heading DarkLaw</h1>
+    Example: # Heading level 1 => <h1>Heading level 1</h1>
     """
     for i in range(1, 7):
+        """
+        In Markdown, headings are denoted by # symbols and 
+        the number of # symbols indicates the level of the heading
+        from 1 to 6, representing <h1> to <h6> in HTML.
+        """
         pattern = r'(^|\n)#{' + str(i) + r'} (.+?)(?=\n|$)'
         replacement = r'\1<h' + str(i) + r'>\2</h' + str(i) + r'>'
         text = re.sub(pattern, replacement, text)
@@ -21,9 +26,9 @@ def convert_headings(text):
 
 def convert_lists(text):
     """
-    Convert Markdown lists to HTML lists.
+    Convert Markdown lists (ordered & unordered) to their HTML equivalents.
 
-    Example: - Item Dark\n- Item Law => <ul><li>Item Dark</li><li>Item Law</li></ul>
+    Example: - Item 1\n- Item 2 => <ul><li>Item 1</li><li>Item 2</li></ul>
     """
     pattern = r'(?:(?:^|\n)([\*\-+]) (.+?)(?=\n|$))+'
     replacement = r'<ul>{}</ul>'
@@ -56,7 +61,7 @@ def convert_links(text_to_convert, css_file=None):
         # Convert emoji characters to HTML entities using the emoji library
         text_to_convert = emoji.emojize(text_to_convert)
     except Exception as e:
-        # Handle the EmojiError, which might occur if there's an issue with emoji conversion
+        # We handle the exception by printing an error message, if an error occurs with the emoji conversion
         print(f"Error converting emojis: {e}", file=sys.stderr)
 
     # Apply custom CSS styles if a CSS file is provided
@@ -84,5 +89,4 @@ def convert_markdown_to_html(markdown_content):
 
         return html_content
     except Exception as e:
-        # Handle any other unexpected exceptions
         print(f"An unexpected error occurred: {e}", file=sys.stderr)
