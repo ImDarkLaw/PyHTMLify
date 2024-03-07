@@ -3,7 +3,7 @@ from tkinter import scrolledtext, ttk
 from converter import convert_markdown_to_html
 
 
-class PyHTMLifyApp:
+class PyHTMLifyInterface:
     def __init__(self, root_window):
         self.root = root_window
         root_window.title("PyHTMLify")
@@ -17,7 +17,7 @@ class PyHTMLifyApp:
         ttk.Style().map('TButton', background=[('active', '#20a859')])
 
         # Title label
-        title_label = tk.Label(root_window, text="Paste Markdown content into text box", font=('Helvetica', 16, 'bold'), bg='#b6e3c8')
+        title_label = tk.Label(root_window, text="Paste Markdown content into the text box", font=('Helvetica', 16, 'bold'), bg='#b6e3c8')
         title_label.pack(pady=24)
 
         # Text widget for user input
@@ -46,5 +46,5 @@ class PyHTMLifyApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = PyHTMLifyApp(root)
+    app = PyHTMLifyInterface(root)
     root.mainloop()
