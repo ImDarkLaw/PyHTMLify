@@ -4,15 +4,16 @@
 
 </div>
 
-PyHTMLify is a Python script that converts Markdown files to HTML with additional features for improved styling and customization. It's designed to make it easy to generate HTML content from your Markdown files while providing options to enhance the output.
+PyHTMLify simplifies the process of converting Markdown text to HTML through an intuitive Python script and easy to use interface.
 
 ## Features
 
-- **Headings Conversion:** Converts Markdown headings to HTML headings.
-- **Lists Conversion:** Converts Markdown lists to HTML lists.
-- **Links Conversion:** Converts Markdown links to HTML links and masked links with proper formatting.
-- **Emoji Support:** Converts emoji characters to HTML entities.
-- **Custom CSS:** Allows you to apply custom CSS styles to the generated HTML.
+- **Graphical Interface:** User-friendly window to seamlessly convert Markdown text into HTML.
+- **Headings Conversion:** Support for Markdown headings to HTML headings conversion.
+- **Lists Conversion:** Support for Markdown (ordered & unordered) lists to HTML lists conversion.
+- **Links Conversion:** Support for Markdown masked links to HTML masked links conversion.
+<!-- - **Emoji Support:** Converts emoji characters to HTML entities.
+- **Custom CSS:** Allows you to apply custom CSS styles to the generated HTML. -->
 
 ## Table of Contents
 
@@ -22,7 +23,7 @@ PyHTMLify is a Python script that converts Markdown files to HTML with additiona
 
 ## Usage
 
-1. Install the required dependencies:
+1. Install the required dependencies using the [package manager](https://packaging.python.org/en/latest/tutorials/installing-packages/):
     ```bash
     pip install markdown2
     pip install emoji
@@ -43,8 +44,8 @@ PyHTMLify is a Python script that converts Markdown files to HTML with additiona
     python ui.py
     ```
 
-   Upon execution, a user-friendly window will launch where you can effortlessly convert your Markdown text into HTML text by utilizing the integrated text box and button.
+   Utilize the integrated text box and button provided to convert your Markdown text effortlessly into HTML text.
 
 ## Why PyHTMLify?
 
-It's simple. Yeah, that's pretty much about it.
+- Easy to use - transform Markdown text into HTML via a user-friendly window
