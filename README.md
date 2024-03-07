@@ -4,14 +4,14 @@
 
 </div>
 
-PyHTMLify simplifies the process of converting Markdown text to HTML through an intuitive Python script and easy to use interface.
+PyHTMLify simplifies the process of converting [Markdown](https://www.markdownguide.org/getting-started/) text to HTML through an intuitive Python script and easy to use interface.
 
 ## Features
 
 - **Graphical Interface:** User-friendly window to seamlessly convert Markdown text into HTML.
-- **Headings Conversion:** Support for Markdown headings to HTML headings conversion.
-- **Lists Conversion:** Support for Markdown (ordered & unordered) lists to HTML lists conversion.
-- **Links Conversion:** Support for Markdown masked links to HTML masked links conversion.
+- **Headings Support:** Convert Markdown headings to HTML headings.
+- **Lists Support:** Convert Markdown (ordered & unordered) lists to HTML lists.
+- **Masked Links Support:** Convert Markdown masked links to HTML masked links.
 <!-- - **Emoji Support:** Converts emoji characters to HTML entities.
 - **Custom CSS:** Allows you to apply custom CSS styles to the generated HTML. -->
 
