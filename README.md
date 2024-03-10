@@ -15,12 +15,6 @@ PyHTMLify simplifies the process of converting [Markdown](https://www.markdowngu
 <!-- - **Emoji Support:** Converts emoji characters to HTML entities.
 - **Custom CSS:** Allows you to apply custom CSS styles to the generated HTML. -->
 
-## Table of Contents
-
-- [Features](#features)
-- [Usage](#usage)
-- [Why PyHTMLify?](#why-pyhtmlify)
-
 ## Usage
 
 1. Install the required dependencies using the [package manager](https://packaging.python.org/en/latest/tutorials/installing-packages/):
@@ -45,7 +39,3 @@ PyHTMLify simplifies the process of converting [Markdown](https://www.markdowngu
     ```
 
    Utilize the integrated text box and button provided to convert your Markdown text effortlessly into HTML text.
-
-## Why PyHTMLify?
-
-- Easy to use - transform Markdown text into HTML via a user-friendly window
