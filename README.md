@@ -12,8 +12,8 @@ PyHTMLify simplifies the process of converting [Markdown](https://www.markdowngu
 - **Headings Support:** Convert Markdown headings to HTML headings.
 - **Lists Support:** Convert Markdown (ordered & unordered) lists to HTML lists.
 - **Masked Links Support:** Convert Markdown masked links to HTML masked links.
-<!-- - **Emoji Support:** Converts emoji characters to HTML entities.
-- **Custom CSS:** Allows you to apply custom CSS styles to the generated HTML. -->
+- **HTML Output Exporter:** Export your HTML content with ease.
+<!-- - **Emoji Support:** Converts emoji characters to HTML entities.-->
 
 ## Usage
 
