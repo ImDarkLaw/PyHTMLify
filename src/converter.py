@@ -42,7 +42,7 @@ def convert_lists(text):
     return text
 
 
-def convert_links(text_to_convert, css_file=None):
+def convert_links(text_to_convert):
     """
     Convert Markdown links to HTML links.
 
@@ -57,6 +57,8 @@ def convert_links(text_to_convert, css_file=None):
     pattern = r'\[([^\]]+?)\]\[([^\]]+?)\]'
     replacement = r'<a href="#\2">\1</a>'
 
+# FIXME Sort emoji conversion
+
     try:
         # Convert emoji characters to HTML entities using the emoji library
         text_to_convert = emoji.emojize(text_to_convert)
@@ -64,23 +66,18 @@ def convert_links(text_to_convert, css_file=None):
         # We handle the exception by printing an error message, if an error occurs with the emoji conversion
         print(f"Error converting emojis: {e}", file=sys.stderr)
 
-    text_to_convert = re.sub(pattern, replacement)
+    text_to_convert = re.sub(pattern, replacement, text_to_convert)
     return text_to_convert
 
 
 def convert_markdown_to_html(markdown_content):
     """
     Convert Markdown content to HTML.
-
-    Converts Markdown content to HTML and returns the result.
     """
     try:
-        # Convert Markdown to HTML using markdown2
         html_content = markdown2.markdown(markdown_content)
-
-        # Convert links
         html_content = convert_links(html_content)
 
         return html_content
     except Exception as e:
-        print(f"An unexpected error occurred: {e}", file=sys.stderr)
+        print(f"An unexpected error occurred during conversion: {e}", file=sys.stderr)
