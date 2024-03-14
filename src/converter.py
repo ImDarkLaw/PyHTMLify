@@ -64,13 +64,7 @@ def convert_links(text_to_convert, css_file=None):
         # We handle the exception by printing an error message, if an error occurs with the emoji conversion
         print(f"Error converting emojis: {e}", file=sys.stderr)
 
-    # Apply custom CSS styles if a CSS file is provided
-    if css_file:
-        with open(css_file, 'r', encoding='utf-8') as css:
-            css_styles = css.read()
-        text_to_convert = f'<style>{css_styles}</style>{text_to_convert}'
-
-    text_to_convert = re.sub(pattern, replacement, text_to_convert)
+    text_to_convert = re.sub(pattern, replacement)
     return text_to_convert
 
 
@@ -84,7 +78,7 @@ def convert_markdown_to_html(markdown_content):
         # Convert Markdown to HTML using markdown2
         html_content = markdown2.markdown(markdown_content)
 
-        # Convert links and apply custom CSS
+        # Convert links
         html_content = convert_links(html_content)
 
         return html_content
