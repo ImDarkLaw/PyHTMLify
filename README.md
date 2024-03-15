@@ -21,8 +21,7 @@ PyHTMLify simplifies the process of converting [Markdown](https://www.markdowngu
 
 1. Install the required dependencies using the [package manager](https://packaging.python.org/en/latest/tutorials/installing-packages/):
     ```bash
-    pip install markdown2
-    pip install emoji
+    pip install -r requirements.txt
     ```
 
 2. Clone the repository:
