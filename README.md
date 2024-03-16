@@ -19,24 +19,26 @@ PyHTMLify simplifies the process of converting [Markdown](https://www.markdowngu
 
 ## Usage
 
-1. Install the required dependencies using the [package manager](https://packaging.python.org/en/latest/tutorials/installing-packages/):
+1. Ensure you have Python installed on your system. You can download Python from [python.org](https://www.python.org/).
+
+2. Install the required dependencies using the [package manager](https://packaging.python.org/en/latest/tutorials/installing-packages/):
     ```bash
     pip install -r requirements.txt
     ```
 
-2. Clone the repository:
+3. Clone the repository:
     ```bash
     git clone https://github.com/ImDarkLaw/PyHTMLify.git
     ```
 
-3. Navigate to the project directory:
+4. Navigate to the project directory:
     ```bash
     cd PyHTMLify
     ```
 
-4. Run the UI script:
+5. Run the script:
     ```bash
-    python ui.py
+    python src/ui.py
     ```
 
-   Utilize the integrated text box and button provided to convert your Markdown text effortlessly into HTML text.
+6. Celebrate! Now you can utilize the integrated text box and interact with the buttons to convert Markdown content to HTML.
