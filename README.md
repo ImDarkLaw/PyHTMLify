@@ -2,7 +2,6 @@
 
 <p align="center">
   <img src="https://img.shields.io/github/last-commit/ImDarkLaw/PyHTMLify">
-  <img src="https://img.shields.io/github/contributors/ImDarkLaw/PyHTMLify">
   <img src="https://img.shields.io/github/stars/ImDarkLaw/PyHTMLify">
 </p>
 
