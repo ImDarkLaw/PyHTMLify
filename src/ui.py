@@ -26,7 +26,7 @@ class PyHTMLifyInterface:
         y_coordinate = (screen_height - window_height) // 2
         root_window.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
-        frame = customtkinter.CTkFrame(master=root,  border_color="#FFCC70", border_width=2)  # fg_color="#8D6F3A",
+        frame = customtkinter.CTkFrame(master=root, border_width=2)  # fg_color="#8D6F3A", border_color="#FFCC70",
         frame.pack(fill="both", expand=True)
 
         """
@@ -36,11 +36,11 @@ class PyHTMLifyInterface:
         title_label = customtkinter.CTkLabel(master=frame, text="Paste Markdown content into the text box", font=('Arial', 24))
         title_label.pack(pady=20)
 
-        convert_button = customtkinter.CTkButton(master=frame, text="Convert", command=self.convert_handler,
+        convert_button = customtkinter.CTkButton(master=frame, text="Convert", font=('Arial', 16), command=self.convert_handler,
         corner_radius=32, border_color="#FFCC70", border_width=2, fg_color="transparent")
         convert_button.pack(pady=10)
 
-        export_button = customtkinter.CTkButton(master=frame, text="Export", command=self.export_handler,
+        export_button = customtkinter.CTkButton(master=frame, text="Export", font=('Arial', 16), command=self.export_handler,
         corner_radius=32, border_color="#FFCC70", border_width=2, fg_color="transparent")
         export_button.pack(pady=10)
 
@@ -50,7 +50,7 @@ class PyHTMLifyInterface:
 
         self.output_text = customtkinter.CTkTextbox(master=frame, width=700, height=300, font=('Arial', 18), corner_radius=16,
         border_color="#FFCC70", border_width=2, scrollbar_button_color="#FFE4B3", scrollbar_button_hover_color="#FFCC70", state='disabled')
-        self.output_text.pack(padx=10, pady=30)
+        self.output_text.pack(padx=10, pady=10)
 
     def convert_handler(self):
         # Get the Markdown text from the input Text widget
