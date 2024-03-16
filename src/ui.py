@@ -1,10 +1,8 @@
+import sys
 import customtkinter
 import tkinter as tk
-import sys
 from tkinter import filedialog, messagebox
 from converter import convert_markdown_to_html
-
-# TODO: Add preview button using os library
 
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("dark-blue")
@@ -14,12 +12,25 @@ class PyHTMLifyInterface:
     def __init__(self, root_window):
         self.root = root_window
         root_window.title("PyHTMLify")
+        root_window.maxsize(1600, 1300)
+        root_window.minsize(600, 600)
+
+        # Calculate the center coordinates of the screen
+        screen_width = root_window.winfo_screenwidth()
+        screen_height = root_window.winfo_screenheight()
+        window_width = 1200
+        window_height = 850
+        x_coordinate = (screen_width - window_width) // 2
+        y_coordinate = (screen_height - window_height) // 2
+
+        # Set the geometry of the window to center it on the screen
+        root_window.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
         # The initial size the window uses (width x height)
-        root.geometry("1200x900")
+        # root.geometry("1200x900")
 
-        frame = customtkinter.CTkFrame(master=root, fg_color="#8D6F3A", border_color="#FFCC70", border_width=2)
-        frame.pack(expand=True)
+        frame = customtkinter.CTkFrame(master=root,  border_color="#FFCC70", border_width=2)  # fg_color="#8D6F3A",
+        frame.pack(fill="both", expand=True)
         # fill="both", expand=True
 
         """
