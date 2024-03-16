@@ -1,58 +1,79 @@
-import tkinter as tk
 import sys
-from tkinter import scrolledtext, ttk, filedialog, messagebox
+import customtkinter
+import tkinter as tk
+from tkinter import filedialog, messagebox
 from converter import convert_markdown_to_html
 
-# TODO: Add preview button using os library
+customtkinter.set_appearance_mode("dark")
+customtkinter.set_default_color_theme("green")
 
 
 class PyHTMLifyInterface:
     def __init__(self, root_window):
         self.root = root_window
         root_window.title("PyHTMLify")
+        root_window.maxsize(1600, 1300)
+        root_window.minsize(600, 700)
 
-        # The initial size the window uses (width x height)
-        root.geometry("1000x800")
+        """
+        Center window calculation & logic
+        """
+        screen_width = root_window.winfo_screenwidth()
+        screen_height = root_window.winfo_screenheight()
+        window_width = 1200
+        window_height = 900
+        x_coordinate = (screen_width - window_width) // 2
+        y_coordinate = (screen_height - window_height) // 2
+        root_window.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
-        # Styling
-        root_window.configure(bg='#b6e3c8')  # Background color
-        ttk.Style().configure('TButton', padding=10, relief='flat', background='#20a859', font=('Helvetica', 12, 'bold'))
-        ttk.Style().map('TButton', background=[('active', '#20a859')])
+        frame = customtkinter.CTkFrame(master=root, border_width=2)  # fg_color="#8D6F3A", border_color="#BDE9BA",
+        frame.pack(fill="both", expand=True)
 
-        # Title label
-        title_label = tk.Label(root_window, text="Paste Markdown content into the text box", font=('Helvetica', 16, 'bold'), bg='#b6e3c8')
-        title_label.pack(pady=24)
+        """
+        Widgets https://customtkinter.tomschimansky.com/documentation/widgets
+        """
 
-        # Text widget for user input
-        self.input_text = scrolledtext.ScrolledText(root_window, wrap=tk.WORD, width=100, height=20, font=('Helvetica', 12))
-        self.input_text.pack(padx=10, pady=10)
+        title_label = customtkinter.CTkLabel(master=frame, text="Paste Markdown content into the text box", font=('Arial', 24))
+        title_label.pack(pady=20)
 
-        # Button to perform the conversion
-        convert_button = ttk.Button(root_window, text="Convert", command=self.convert_markdown, style='TButton')
+        convert_button = customtkinter.CTkButton(master=frame, text="Convert", font=('Arial', 16), command=self.convert_handler,
+        corner_radius=32, border_color="#BDE9BA", border_width=2, fg_color="transparent")
         convert_button.pack(pady=10)
 
-        # Button to export current html output into a file
-        export_button = ttk.Button(root_window, text="Export", command=self.export_html, style='TButton')
+        export_button = customtkinter.CTkButton(master=frame, text="Export", font=('Arial', 16), command=self.export_handler,
+        corner_radius=32, border_color="#BDE9BA", border_width=2, fg_color="transparent")
         export_button.pack(pady=10)
 
-        # Text widget to display the HTML output
-        self.output_text = scrolledtext.ScrolledText(root_window, wrap=tk.WORD, width=100, height=20, font=('Helvetica', 12))
+        self.input_text = customtkinter.CTkTextbox(master=frame, width=700, height=300, font=('Arial', 18), corner_radius=16,
+        border_color="#BDE9BA", border_width=2, scrollbar_button_color="#CEEACC", scrollbar_button_hover_color="#BDE9BA")
+        self.input_text.pack(padx=10, pady=30)
+
+        self.output_text = customtkinter.CTkTextbox(master=frame, width=700, height=300, font=('Arial', 18), corner_radius=16,
+        border_color="#BDE9BA", border_width=2, scrollbar_button_color="#CEEACC", scrollbar_button_hover_color="#BDE9BA", state='disabled')
         self.output_text.pack(padx=10, pady=10)
 
-    def convert_markdown(self):
+    def convert_handler(self):
         # Get the Markdown text from the input Text widget
-        markdown_text = self.input_text.get("1.0", tk.END)
+        markdown_text = self.input_text.get("0.0", 'end')
+
+        # Print statement for debugging
+        print("Markdown Text:", markdown_text)
 
         # Call the Markdown to HTML conversion function from converter.py
         html_content = convert_markdown_to_html(markdown_text)
 
-        # Display the HTML output in the output Text widget
-        self.output_text.delete("1.0", tk.END)
-        self.output_text.insert(tk.END, html_content)
+        # Print statement for debugging
+        print("HTML Content:", html_content)
 
-    def export_html(self):
+        # Display the HTML output in the output Text widget
+        self.output_text.configure(state="normal")
+        self.output_text.delete("1.0", 'end')
+        self.output_text.insert('end', html_content)
+        self.output_text.configure(state="disabled")
+
+    def export_handler(self):
         # Get the HTML content from the output Text widget
-        html_content = self.output_text.get("1.0", tk.END)
+        html_content = self.output_text.get("0.0", 'end')
 
         if html_content.strip():
             try:
@@ -71,6 +92,6 @@ class PyHTMLifyInterface:
 
 
 if __name__ == "__main__":
-    root = tk.Tk()
+    root = customtkinter.CTk()
     app = PyHTMLifyInterface(root)
     root.mainloop()
