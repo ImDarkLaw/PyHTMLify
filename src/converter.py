@@ -3,7 +3,9 @@ import re
 import emoji
 import sys
 
-# Conversion logic
+"""
+Conversion Logic
+"""
 
 
 def convert_headings(text):

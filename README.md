@@ -41,3 +41,7 @@ PyHTMLify simplifies the process of converting [Markdown](https://www.markdowngu
     ```
 
 6. Celebrate! Now you can utilize the integrated text box and interact with the buttons to convert Markdown content to HTML.
+
+## License
+
+PyHTMLify is licensed under the permissive MIT license. Please see [`LICENSE.txt`](https://github.com/ImDarkLaw/PyHTMLify/blob/main/LICENSE) for more info.
