@@ -23,7 +23,7 @@ class App(customtkinter.CTk):
         self.minsize(400, 560)
 
         """
-        Calculation & logic for window centering
+        Logic for window center calculation
         """
 
         screen_width = self.winfo_screenwidth()
@@ -88,6 +88,8 @@ class App(customtkinter.CTk):
         self.output_text.delete("1.0", 'end')
         self.output_text.insert('end', html_content)
         self.output_text.configure(state="disabled")
+
+    # FIXME Fix export function
 
     def export_handler(self):
         """
