@@ -1,8 +1,8 @@
-<h1 align="center" style="margin: 0 auto 0 auto;">PyHTMLify</h1>
+<h1 style="text-align: center; margin: 0 auto 0 auto;">PyHTMLify</h1>
 
-<p align="center">
-  <img src="https://img.shields.io/github/last-commit/ImDarkLaw/PyHTMLify">
-  <img src="https://img.shields.io/github/stars/ImDarkLaw/PyHTMLify">
+<p style="text-align: center">
+  <img src="https://img.shields.io/github/last-commit/ImDarkLaw/PyHTMLify" alt="lastcommit">
+  <img src="https://img.shields.io/github/stars/ImDarkLaw/PyHTMLify" alt="stars">
 </p>
 
 PyHTMLify simplifies the process of converting [Markdown](https://www.markdownguide.org/getting-started/) text to HTML through an intuitive Python script and easy to use interface.
