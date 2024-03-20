@@ -50,4 +50,6 @@ PyHTMLify simplifies the process of converting Markdown text to HTML through an 
 
 PyHTMLify is licensed under the permissive MIT license. Please see [`LICENSE.txt`](https://github.com/ImDarkLaw/PyHTMLify/blob/main/LICENSE) for more info.
 
-![Example](src/assets/Window.png)
+<p align="center">
+   <img src="src/assets/Window.png" alt="Window" height="300">
+</p>
