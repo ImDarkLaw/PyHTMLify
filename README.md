@@ -41,6 +41,7 @@ PyHTMLify simplifies the process of converting Markdown text to HTML through an 
     ```bash
     python ui.py
     ```
+   <img src="src/assets/Window.png" alt="Window" height="340">
 
 2. Use the integrated text box to input Markdown content.
 3. Click the "Convert" button to generate HTML output.
@@ -49,7 +50,3 @@ PyHTMLify simplifies the process of converting Markdown text to HTML through an 
 ## License
 
 PyHTMLify is licensed under the permissive MIT license. Please see [`LICENSE.txt`](https://github.com/ImDarkLaw/PyHTMLify/blob/main/LICENSE) for more info.
-
-<p align="center">
-   <img src="src/assets/Window.png" alt="Window" height="300">
-</p>

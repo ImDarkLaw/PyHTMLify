@@ -5,7 +5,7 @@ from tkinter import filedialog, messagebox
 from converter import convert_markdown_to_html
 
 customtkinter.set_appearance_mode("dark")
-customtkinter.set_default_color_theme("green")
+customtkinter.set_default_color_theme("blue")
 
 
 class App(customtkinter.CTk):
@@ -45,19 +45,19 @@ class App(customtkinter.CTk):
         self.title.grid(row=0, column=0, padx=20)
 
         self.conversion_button = customtkinter.CTkButton(master=self, text="Convert", font=('Arial', 16), command=self.conversion_handler,
-        corner_radius=32, border_color="#BDE9BA", border_width=2, fg_color="transparent")
+        corner_radius=32, border_color="#1D93D7", border_width=2, fg_color="transparent")
         self.conversion_button.grid(row=1, column=0, padx=(0, 180), pady=10)  # padx=2, pady=(0, 10)
 
         self.export_button = customtkinter.CTkButton(master=self, text="Export", font=('Arial', 16), command=self.export_handler,
-        corner_radius=32, border_color="#BDE9BA", border_width=2, fg_color="transparent")
+        corner_radius=32, border_color="#1D93D7", border_width=2, fg_color="transparent")
         self.export_button.grid(row=1, column=0, padx=(180, 0), pady=10)  # padx=2, pady=(0, 10)
 
         self.input_text = customtkinter.CTkTextbox(master=self, width=800, height=300, font=('Arial', 18), corner_radius=16,  # , width=800, height=300
-        border_color="#BDE9BA", border_width=2, scrollbar_button_color="#CEEACC", scrollbar_button_hover_color="#BDE9BA")
+        border_color="#1D93D7", border_width=2, scrollbar_button_color="#333333", scrollbar_button_hover_color="#444444")
         self.input_text.grid(row=2, column=0, padx=10, pady=20)
 
         self.output_text = customtkinter.CTkTextbox(master=self, width=800, height=300, font=('Arial', 18), corner_radius=16,  # , width=800, height=300
-        border_color="#BDE9BA", border_width=2, scrollbar_button_color="#CEEACC", scrollbar_button_hover_color="#BDE9BA", state='disabled')
+        border_color="#1D93D7", border_width=2, scrollbar_button_color="#333333", scrollbar_button_hover_color="#444444", state='disabled')
         self.output_text.grid(row=3, column=0, padx=10, pady=10)
 
     """
