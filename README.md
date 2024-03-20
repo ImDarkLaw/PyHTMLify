@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/github/stars/ImDarkLaw/PyHTMLify" alt="stars">
 </p>
 
-PyHTMLify simplifies the process of converting [Markdown](https://www.markdownguide.org/getting-started/) text to HTML through an intuitive Python script and easy to use interface.
+PyHTMLify simplifies the process of converting Markdown text to HTML through an intuitive Python script and easy to use interface.
 
 ## Features
 
@@ -14,14 +14,17 @@ PyHTMLify simplifies the process of converting [Markdown](https://www.markdowngu
 - **Lists Support:** Convert Markdown (ordered & unordered) lists to HTML lists.
 - **Masked Links Support:** Convert Markdown masked links to HTML masked links.
 - **HTML Output Exporter:** Export your HTML content with ease.
-<!-- - **Emoji Support:** Converts emoji characters to HTML entities.-->
 
-## Usage
+## Installation
+
+### Prerequisites
 
 > [!NOTE]\
 > Ensure you have Python installed on your system. You can download Python from [python.org](https://www.python.org/).
 
-1. Install the required dependencies using the [package manager](https://packaging.python.org/en/latest/tutorials/installing-packages/):
+### Installation Steps
+
+1. Install the required dependencies using pip:
     ```bash
     pip install -r requirements.txt
     ```
@@ -32,12 +35,16 @@ PyHTMLify simplifies the process of converting [Markdown](https://www.markdowngu
     cd PyHTMLify/src
     ```
 
-3. Run the script:
+## Usage
+
+1. Run the script:
     ```bash
     python ui.py
     ```
 
-4. Celebrate! Now you can utilize the integrated text box and interact with the buttons to convert Markdown content to HTML.
+2. Use the integrated text box to input Markdown content.
+3. Click the "Convert" button to generate HTML output.
+4. Export the HTML content using the "Export" button.
 
 ## License
 
