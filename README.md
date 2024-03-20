@@ -1,6 +1,6 @@
-<h1 style="text-align: center; margin: 0 auto 0 auto;">PyHTMLify</h1>
+<h1 align="center">PyHTMLify</h1>
 
-<p style="text-align: center">
+<p align="center">
   <img src="https://img.shields.io/github/last-commit/ImDarkLaw/PyHTMLify" alt="lastcommit">
   <img src="https://img.shields.io/github/stars/ImDarkLaw/PyHTMLify" alt="stars">
 </p>
@@ -49,3 +49,5 @@ PyHTMLify simplifies the process of converting Markdown text to HTML through an 
 ## License
 
 PyHTMLify is licensed under the permissive MIT license. Please see [`LICENSE.txt`](https://github.com/ImDarkLaw/PyHTMLify/blob/main/LICENSE) for more info.
+
+![Example](src/assets/Window.png)
