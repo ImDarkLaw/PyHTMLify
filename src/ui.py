@@ -1,4 +1,3 @@
-import sys
 import customtkinter
 import tkinter as tk
 from tkinter import filedialog, messagebox
@@ -23,7 +22,7 @@ class App(customtkinter.CTk):
         self.minsize(400, 560)
 
         """
-        Logic for window center calculation
+        Logic for window center calculation (not ideal)
         """
 
         screen_width = self.winfo_screenwidth()
@@ -35,11 +34,8 @@ class App(customtkinter.CTk):
         self.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
         """
-        Widgets https://customtkinter.tomschimansky.com/documentation/widgets
+        Customtkinter components (widgets)
         """
-
-        # self.frame = customtkinter.CTkFrame(master=self, border_width=2)
-        # self.frame.grid(row=0, column=0, sticky="nsew")
 
         self.title = customtkinter.CTkLabel(master=self, text="Paste Markdown content into the text box", font=('Arial', 24))
         self.title.grid(row=0, column=0, padx=20)
@@ -71,25 +67,26 @@ class App(customtkinter.CTk):
         using the convert_markdown_to_html function (from converter.py),
         and displays the HTML output in the output text box.
         """
-        # Get the Markdown content from the input textbox widget
-        markdown_text = self.input_text.get("0.0", 'end')
+        try:
+            # Get the Markdown content from the input textbox widget
+            markdown_text = self.input_text.get("0.0", 'end')
 
-        # Print statement for debugging
-        print("Markdown Text:", markdown_text)
+            # Print statement for debugging
+            print("Markdown Text:", markdown_text)
 
-        # Call the Markdown to HTML conversion function from converter.py
-        html_content = convert_markdown_to_html(markdown_text)
+            # Call the Markdown to HTML conversion function from converter.py
+            html_content = convert_markdown_to_html(markdown_text)
 
-        # Print statement for debugging
-        print("HTML Content:", html_content)
+            # Print statement for debugging
+            print("HTML Content:", html_content)
 
-        # Display the HTML output in the output Text widget
-        self.output_text.configure(state="normal")
-        self.output_text.delete("1.0", 'end')
-        self.output_text.insert('end', html_content)
-        self.output_text.configure(state="disabled")
-
-    # FIXME Fix export function
+            # Display the HTML output in the output Text widget
+            self.output_text.configure(state="normal")
+            self.output_text.delete("1.0", 'end')
+            self.output_text.insert('end', html_content)
+            self.output_text.configure(state="disabled")
+        except Exception as e:
+            messagebox.showerror("Error", f"An error occurred during conversion: {e}")
 
     def export_handler(self):
         """
@@ -98,23 +95,24 @@ class App(customtkinter.CTk):
         to choose a file location for saving the HTML content, and writes
         the HTML content to the selected file.
         """
-        # Get the HTML content from the output textbox widget
-        html_content = self.output_text.get("0.0", 'end')
+        try:
+            # Get the HTML content from the output textbox component
+            html_content = self.output_text.get("0.0", 'end')
 
-        if html_content.strip():
-            try:
-                # Ask the user to choose a file location for saving the exported HTML content
+            if html_content.strip():
+                # Prompt user to choose a file location for saving the exported HTML file
                 filename = tk.filedialog.asksaveasfilename(defaultextension=".html", filetypes=[("HTML files", "*.html")])
 
                 # Check if the user selected a file
                 if filename:
-                    # Use UTF-8 encoding to open the file
+                    # Open and write into file using UTF-8 encoding
                     with open(filename, "w", encoding="utf-8") as file:
                         file.write(html_content)
-            except Exception as e:
-                print(f"An error occurred while exporting HTML: {e}", file=sys.stderr)
-        else:
-            messagebox.showwarning("Empty HTML content", "It looks like you're trying to export thin air.")
+            else:
+                messagebox.showwarning("No HTML content", "It looks like you're trying to export thin air.")
+
+        except Exception as e:
+            messagebox.showerror("Error", f"An error occurred while exporting HTML content: {e}")
 
 
 if __name__ == "__main__":
