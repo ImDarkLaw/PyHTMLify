@@ -10,7 +10,7 @@ Conversion Logic
 
 def convert_headings(text):
     """
-    Convert Markdown headings to HTML headings.
+    Markdown to HTML heading conversion logic.
 
     Example: # Heading level 1 => <h1>Heading level 1</h1>
     """
@@ -44,32 +44,28 @@ def convert_lists(text):
     return text
 
 
-def convert_links(text_to_convert):
+def convert_links(text):
     """
-    Convert Markdown links to HTML links.
+    Markdown to HTML links conversion logic.
 
     Example: [My GitHub](https://github.com/ImDarkLaw) => <a href="https://github.com/ImDarkLaw">My GitHub</a>
     """
     # Convert Markdown links to HTML links
     pattern = r'\[([^\]]+?)\]\(([^)]+?)\)'
     replacement = r'<a href="\2">\1</a>'
-    text_to_convert = re.sub(pattern, replacement, text_to_convert)
+    text = re.sub(pattern, replacement, text)
+    return text
 
-    # Convert Markdown masked links to HTML links with proper formatting
-    pattern = r'\[([^\]]+?)\]\[([^\]]+?)\]'
-    replacement = r'<a href="#\2">\1</a>'
 
-# FIXME Sort emoji conversion
-
+def convert_emojis(text):
+    """
+    Emojis conversion logic WIP.
+    """
     try:
-        # Convert emoji characters to HTML entities using the emoji library
-        text_to_convert = emoji.emojize(text_to_convert)
+        text = emoji.emojize(text)
     except Exception as e:
-        # We handle the exception by printing an error message, if an error occurs with the emoji conversion
         print(f"Error converting emojis: {e}", file=sys.stderr)
-
-    text_to_convert = re.sub(pattern, replacement, text_to_convert)
-    return text_to_convert
+    return text
 
 
 def convert_markdown_to_html(markdown_content):
@@ -79,7 +75,10 @@ def convert_markdown_to_html(markdown_content):
     try:
         html_content = markdown2.markdown(markdown_content)
         html_content = convert_links(html_content)
-
+        html_content = convert_emojis(html_content)
+        html_content = convert_headings(html_content)
+        html_content = convert_lists(html_content)
         return html_content
+
     except Exception as e:
         print(f"An unexpected error occurred during conversion: {e}", file=sys.stderr)
