@@ -1,6 +1,5 @@
 import markdown2
 import re
-import emoji
 import sys
 
 """
@@ -57,17 +56,6 @@ def convert_links(text):
     return text
 
 
-def convert_emojis(text):
-    """
-    Emojis conversion logic WIP.
-    """
-    try:
-        text = emoji.emojize(text)
-    except Exception as e:
-        print(f"Error converting emojis: {e}", file=sys.stderr)
-    return text
-
-
 def convert_markdown_to_html(markdown_content):
     """
     Convert Markdown content to HTML.
@@ -75,7 +63,6 @@ def convert_markdown_to_html(markdown_content):
     try:
         html_content = markdown2.markdown(markdown_content)
         html_content = convert_links(html_content)
-        html_content = convert_emojis(html_content)
         html_content = convert_headings(html_content)
         html_content = convert_lists(html_content)
         return html_content
