@@ -105,9 +105,66 @@ class App(customtkinter.CTk):
 
                 # Check if the user selected a file
                 if filename:
-                    # Open and write into file using UTF-8 encoding
+                    # Embed inline CSS styling goes brrr
+                    html_with_css = f"""<html>
+                        <head>
+                            <style>
+                                /* Reset CSS */
+                                body, h1, p {{
+                                    margin: 0;
+                                    padding: 0;
+                                }}
+
+                                /* Global styles */
+                                body {{
+                                    font-family: 'Arial', sans-serif;
+                                    line-height: 1.6;
+                                    color: #f0f0f0; /* Light text color */
+                                    background-color: #333333; /* Dark background color */
+                                    padding: 20px;
+                                }}
+
+                                /* Header styles */
+                                h1 {{
+                                    color: #1D93D7; /* Blue heading color */
+                                    font-size: 24px;
+                                    margin-bottom: 20px;
+                                }}
+
+                                /* Link styles */
+                                a {{
+                                    color: #1D93D7; /* Blue link color */
+                                    text-decoration: none;
+                                }}
+
+                                a:hover {{
+                                    text-decoration: underline;
+                                }}
+
+                                /* Content styles */
+                                .content {{
+                                    max-width: 800px;
+                                    margin: 0 auto;
+                                }}
+
+                                /* Responsive styles */
+                                @media screen and (max-width: 600px) {{
+                                    body, .content {{
+                                        padding: 10px;
+                                    }}
+                                }}
+                            </style>
+                        </head>
+                        <body>
+                            <div class="content">
+                                {html_content}
+                            </div>
+                        </body>
+                    </html>"""
+
+                    # Write the bundled content to selected file
                     with open(filename, "w", encoding="utf-8") as file:
-                        file.write(html_content)
+                        file.write(html_with_css)
             else:
                 messagebox.showwarning("No HTML content", "It looks like you're trying to export thin air.")
 
