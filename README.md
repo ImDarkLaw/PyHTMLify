@@ -24,22 +24,22 @@ PyHTMLify simplifies the process of converting Markdown text to HTML through an 
 
 ### Installation Steps
 
-1. Install the required dependencies using pip:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-2. Clone the repository and navigate to the source directory:
+1. Clone the repository and navigate to the project directory:
     ```bash
     git clone https://github.com/ImDarkLaw/PyHTMLify.git
-    cd PyHTMLify/src
+    cd PyHTMLify   
+    ```
+
+2. Install the required dependencies using pip:
+    ```bash
+    pip install -r requirements.txt
     ```
 
 ## Usage
 
 1. Run the script:
     ```bash
-    python ui.py
+    python src/ui.py
     ```
    <img src="src/assets/Window.png" alt="Window" height="340">
 
