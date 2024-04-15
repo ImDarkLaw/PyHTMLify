@@ -45,13 +45,22 @@ class App(customtkinter.CTk):
                                                          command=self.conversion_handler,
                                                          corner_radius=32, border_color="#1D93D7", border_width=2,
                                                          fg_color="transparent")
-        self.conversion_button.grid(row=1, column=0, padx=(0, 180), pady=10)
+        
+        self.conversion_button.grid(row=1, column=0, padx=(0, 360), pady=10)
+        
+        self.clear_button = customtkinter.CTkButton(master=self, text="Clear", font=('Arial', 16),
+                                                    command=self.clear_handler,
+                                                    corner_radius=32, border_color="#1D93D7", border_width=2,
+                                                    fg_color="transparent")
+        
+        self.clear_button.grid(row=1, column=0, padx=180, pady=10)
 
         self.export_button = customtkinter.CTkButton(master=self, text="Export", font=('Arial', 16),
                                                      command=self.export_handler,
                                                      corner_radius=32, border_color="#1D93D7", border_width=2,
                                                      fg_color="transparent")
-        self.export_button.grid(row=1, column=0, padx=(180, 0), pady=10)
+        
+        self.export_button.grid(row=1, column=0, padx=(360, 0), pady=10)
 
         self.input_text = customtkinter.CTkTextbox(master=self, width=800, height=300, font=('Arial', 18),
                                                    corner_radius=16,
@@ -73,10 +82,10 @@ class App(customtkinter.CTk):
 
     def conversion_handler(self):
         """
-        This method is triggered when the "Convert" button is clicked.
-        It retrieves Markdown text from the input text box, converts it to HTML
-        using the convert_markdown_to_html function (from converter.py),
-        and displays the HTML output in the output text box.
+        Converts Markdown text to HTML when the "Convert" button is clicked.
+
+        This method is triggered when the user clicks the "Convert" button. It retrieves the Markdown text from the input text box,
+        converts it to HTML using the convert_markdown_to_html function, and displays the HTML output in the output text box.
         """
         try:
             # Get the Markdown content from the input textbox component
@@ -98,13 +107,33 @@ class App(customtkinter.CTk):
             self.output_text.configure(state="disabled")
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred during conversion: {e}")
+            
+    def clear_handler(self):
+        """
+        This method is called when the "Clear" button is clicked.
+        
+        This method is responsible for handling the clearing functionality when the user clicks the "Clear" button.
+        It deletes the content of both the input and output text boxes, ensuring they are ready for new input or results.
+        """
+        try:
+            # Clear input textbox
+            self.input_text.delete("1.0", tk.END)
+        
+            # Enable output textbox, clear its content, then disable it again
+            self.output_text.configure(state="normal")
+            self.output_text.delete("1.0", tk.END)
+            self.output_text.configure(state="disabled")
+        except Exception as e:
+            messagebox.showerror("Error", f"An error occurred during clear: {e}")
+
 
     def export_handler(self):
         """
-        This method is triggered when the "Export" button is clicked.
-        It retrieves HTML content from the output text box, prompts the user
-        to choose a file location for saving the HTML content, and writes
-        the HTML content to the selected file applying inline CSS.
+        Exports the HTML content to a file when the "Export" button is clicked.
+
+        This method is triggered when the user clicks the "Export" button. It retrieves the HTML content from the output text box,
+        prompts the user to choose a file location for saving the HTML content, and writes the HTML content to the selected file
+        applying inline CSS styling.
         """
         try:
             # Get the HTML content from the output textbox component
