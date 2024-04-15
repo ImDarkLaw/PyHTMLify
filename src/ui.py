@@ -6,6 +6,8 @@ from converter import convert_markdown_to_html
 customtkinter.set_appearance_mode("dark")
 customtkinter.set_default_color_theme("blue")
 
+# TODO: Add preview button & function
+
 
 class App(customtkinter.CTk):
     def __init__(self):
@@ -110,7 +112,7 @@ class App(customtkinter.CTk):
             
     def clear_handler(self):
         """
-        This method is called when the "Clear" button is clicked.
+        Clears text boxes' content when the "Clear" button is clicked.
         
         This method is responsible for handling the clearing functionality when the user clicks the "Clear" button.
         It deletes the content of both the input and output text boxes, ensuring they are ready for new input or results.

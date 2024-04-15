@@ -6,6 +6,8 @@ import sys
 Conversion Logic
 """
 
+# TODO: Add image support
+
 
 def convert_headings(text):
     """
