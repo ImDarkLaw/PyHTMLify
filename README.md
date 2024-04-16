@@ -39,7 +39,7 @@ PyHTMLify simplifies the process of converting Markdown text to HTML through an 
 
 1. Run the script:
     ```bash
-    python src/ui.py
+    python src/app.py
     ```
    <img src="src/assets/Window.png" alt="Window" height="340">
 
