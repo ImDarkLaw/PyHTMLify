@@ -6,6 +6,8 @@ import sys
 Conversion Logic
 """
 
+# TODO: Add code block and > support
+
 
 def convert_headings(text: str) -> str:
     """
@@ -13,6 +15,8 @@ def convert_headings(text: str) -> str:
 
     Example: # Heading level 1 => <h1>Heading level 1</h1>
     """
+    pattern = ''
+    replacement = ''
     for i in range(1, 7):
         """
         In Markdown, headings are denoted by # symbols and 
