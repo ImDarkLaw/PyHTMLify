@@ -21,8 +21,7 @@ def convert_headings(text: str) -> str:
         """
         pattern = r'(^|\n)#{' + str(i) + r'} (.+?)(?=\n|$)'
         replacement = r'\1<h' + str(i) + r'>\2</h' + str(i) + r'>'
-        text = re.sub(pattern, replacement, text)
-    return text
+    return re.sub(pattern, replacement, text)
 
 
 def convert_lists(text: str) -> str:
@@ -36,24 +35,20 @@ def convert_lists(text: str) -> str:
 
     def list_items(match):
         items = match.group(0)
-        items = re.sub(r'(?m)^[*\-+] (.+)$', r'<li>\1</li>', items)
-        return replacement.format(items)
+        return replacement.format(re.sub(r'(?m)^[*\-+] (.+)$', r'<li>\1</li>', items))
 
-    text = re.sub(pattern, list_items, text)
-    return text
+    return re.sub(pattern, list_items, text)
 
 
 def convert_links(text: str) -> str:
     """
     Markdown to HTML links conversion logic.
 
-    Example: [My GitHub](https://github.com/ImDarkLaw) => <a href="https://github.com/ImDarkLaw">My GitHub</a>
+    Example: [Google](https://www.google.com/) => <a href="https://www.google.com/">Google</a>
     """
-    # Convert Markdown links to HTML links
     pattern = r'\[([^\]]+?)\]\(([^)]+?)\)'
     replacement = r'<a href="\2">\1</a>'
-    text = re.sub(pattern, replacement, text)
-    return text
+    return re.sub(pattern, replacement, text)
 
 
 def convert_images(text: str) -> str:
@@ -65,7 +60,6 @@ def convert_images(text: str) -> str:
     pattern = r'!\[([^\]]+?)\]\(([^)]+?)\)'
     replacement = r'<img src="\2" alt="\1">'
     return re.sub(pattern, replacement, text)
-    return text
 
 
 def convert_markdown_to_html(markdown_content: str) -> str:
@@ -82,3 +76,4 @@ def convert_markdown_to_html(markdown_content: str) -> str:
 
     except Exception as e:
         print(f"An unexpected error occurred during conversion: {e}", file=sys.stderr)
+            
