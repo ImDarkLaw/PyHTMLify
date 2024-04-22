@@ -6,10 +6,8 @@ import sys
 Conversion Logic
 """
 
-# TODO: Add image support
 
-
-def convert_headings(text):
+def convert_headings(text: str) -> str:
     """
     Markdown to HTML heading conversion logic.
 
@@ -27,7 +25,7 @@ def convert_headings(text):
     return text
 
 
-def convert_lists(text):
+def convert_lists(text: str) -> str:
     """
     Convert Markdown lists (ordered & unordered) to their HTML equivalents.
 
@@ -45,7 +43,7 @@ def convert_lists(text):
     return text
 
 
-def convert_links(text):
+def convert_links(text: str) -> str:
     """
     Markdown to HTML links conversion logic.
 
@@ -58,7 +56,19 @@ def convert_links(text):
     return text
 
 
-def convert_markdown_to_html(markdown_content):
+def convert_images(text: str) -> str:
+    """
+    Markdown to HTML images conversion logic.
+    
+    Example: ![alt text](path or url) => <img src="path or url" alt="alt text">
+    """
+    pattern = r'!\[([^\]]+?)\]\(([^)]+?)\)'
+    replacement = r'<img src="\2" alt="\1">'
+    return re.sub(pattern, replacement, text)
+    return text
+
+
+def convert_markdown_to_html(markdown_content: str) -> str:
     """
     Convert Markdown content to HTML.
     """
@@ -67,6 +77,7 @@ def convert_markdown_to_html(markdown_content):
         html_content = convert_links(html_content)
         html_content = convert_headings(html_content)
         html_content = convert_lists(html_content)
+        html_content = convert_images(html_content)
         return html_content
 
     except Exception as e:
