@@ -25,7 +25,7 @@ PyHTMLify simplifies the process of converting Markdown content to HTML through 
   - Images Support
   - Emoji Support
 
-<!-- Intructions for setting up and using PyHTMLify -->
+<!-- Instructions for setting up and using PyHTMLify -->
 ## Installation
 
 ### Prerequisites
