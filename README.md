@@ -1,20 +1,31 @@
-<h1 align="center">PyHTMLify</h1>
-
-<p align="center">
+<div align="center">
+<!-- Header -->
+  <h1>PyHTMLify</h1>
+<!-- Shields.io  Badges -->
   <img src="https://img.shields.io/github/last-commit/ImDarkLaw/PyHTMLify" alt="lastcommit">
   <img src="https://img.shields.io/github/stars/ImDarkLaw/PyHTMLify" alt="stars">
-</p>
+</div><br>
 
-PyHTMLify simplifies the process of converting Markdown text to HTML through an intuitive Python script and easy to use interface.
+<!-- Description -->
+PyHTMLify simplifies the process of converting Markdown content to HTML through a streamlined Python script and easy to use interface.
 
+> [!IMPORTANT]\
+> This project is a work in progress and by no means flawless. If you're interested in contributing, feel free to open an [issue](https://github.com/ImDarkLaw/PyHTMLify/issues) to report any problems or submit a pull request to contribute code.
+
+<!-- Key functionalities and features -->
 ## Features
 
-- **Graphical Interface:** User-friendly window to seamlessly convert Markdown text into HTML.
-- **Headings Support:** Convert Markdown headings to HTML headings.
-- **Lists Support:** Convert Markdown (ordered & unordered) lists to HTML lists.
-- **Masked Links Support:** Convert Markdown masked links to HTML masked links.
-- **HTML Output Exporter:** Export your HTML content with ease.
+- **Graphical Interface:** Intuitive graphical interface for effortless Markdown-to-HTML conversion.
+- **HTML Output Exporter:** The window features an export button to save the generated HTML output locally.
+- **Supported Markdown Conversions:**
+  
+  - Headings Support
+  - Lists Support
+  - Masked Links Support
+  - Images Support
+  - Emoji Support
 
+<!-- Intructions for setting up and using PyHTMLify -->
 ## Installation
 
 ### Prerequisites
@@ -47,6 +58,7 @@ PyHTMLify simplifies the process of converting Markdown text to HTML through an 
 3. Click the "Convert" button to generate HTML output.
 4. Export the HTML content using the "Export" button.
 
+<!-- Licensing Terms -->
 ## License
 
 PyHTMLify is licensed under the permissive MIT license. Please see [`LICENSE.txt`](https://github.com/ImDarkLaw/PyHTMLify/blob/main/LICENSE) for more info.
