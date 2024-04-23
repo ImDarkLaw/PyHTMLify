@@ -66,6 +66,17 @@ def convert_images(text: str) -> str:
     return re.sub(pattern, replacement, text)
 
 
+def convert_blockquotes(text: str) -> str:
+    """
+    Markdown to HTML blockquotes conversion logic.
+
+    Example: > This is a blockquote => <blockquote>This is a blockquote</blockquote>
+    """
+    pattern = r'^> (.+?)(?=\n|$)'
+    replacement = r'<blockquote>\1</blockquote>'
+    return re.sub(pattern, replacement, text, flags=re.MULTILINE)
+
+
 def convert_markdown_to_html(markdown_content: str) -> str:
     """
     Convert Markdown content to HTML.
@@ -76,6 +87,7 @@ def convert_markdown_to_html(markdown_content: str) -> str:
         html_content = convert_headings(html_content)
         html_content = convert_lists(html_content)
         html_content = convert_images(html_content)
+        html_content = convert_blockquotes(html_content)
         return html_content
 
     except Exception as e:

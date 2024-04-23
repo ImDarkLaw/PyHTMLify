@@ -23,6 +23,7 @@ PyHTMLify simplifies the process of converting Markdown content to HTML through 
   - Lists Support
   - Masked Links Support
   - Images Support
+  - Blockquotes Support
   - Emoji Support
 
 <!-- Instructions for setting up and using PyHTMLify -->

@@ -61,3 +61,4 @@ class UI(customtkinter.CTk):
         self.output_text = customtkinter.CTkTextbox(master=self, width=800, height=300, font=('Arial', 18),
         corner_radius=16, border_color="#1D93D7", border_width=2, scrollbar_button_color="#333333", scrollbar_button_hover_color="#444444", state='disabled')
         self.output_text.grid(row=3, column=0, padx=10, pady=10)
+            

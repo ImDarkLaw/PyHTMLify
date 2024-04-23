@@ -71,6 +71,15 @@ def export_handler(ui_instance=None):
                                     max-width: 800px;
                                     margin: 0 auto;
                                 }}
+                                
+                                 /* Blockquote styles */
+                                blockquote {{
+                                    margin: 20px 0; /* Add margin to separate blockquotes */
+                                    padding: 10px 20px; /* Add padding inside blockquotes */
+                                    border-left: 2px solid #1D93D7; /* Add a left border to indicate blockquotes */
+                                    color: #666666; /* Adjust the color of blockquote text */
+                                    font-style: italic; /* Optionally, make blockquote text italic */
+                                }}
 
                                 /* Responsive styles */
                                 @media screen and (max-width: 600px) {{
