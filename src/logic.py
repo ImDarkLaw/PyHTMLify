@@ -6,7 +6,8 @@ import sys
 Conversion Logic
 """
 
-# TODO: Add code block and > support
+# TODO: Add code block support
+# TODO: Add horizontal rules support
 
 
 def convert_headings(text: str) -> str:
@@ -77,6 +78,17 @@ def convert_blockquotes(text: str) -> str:
     return re.sub(pattern, replacement, text, flags=re.MULTILINE)
 
 
+def convert_code(text: str) -> str:
+    """
+    Markdown to HTML code conversion logic.
+
+    Example: `inline code` => <code>inline code</code>
+    """
+    pattern = r'`([^`]+?)`'
+    replacement = r'<code>\1</code>'
+    return re.sub(pattern, replacement, text)
+
+
 def convert_markdown_to_html(markdown_content: str) -> str:
     """
     Convert Markdown content to HTML.
@@ -88,6 +100,7 @@ def convert_markdown_to_html(markdown_content: str) -> str:
         html_content = convert_lists(html_content)
         html_content = convert_images(html_content)
         html_content = convert_blockquotes(html_content)
+        html_content = convert_code(html_content)
         return html_content
 
     except Exception as e:
